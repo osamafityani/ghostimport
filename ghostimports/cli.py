@@ -1,4 +1,4 @@
-"""Command-line interface for GhostModule management."""
+"""Command-line interface for GhostImports management."""
 
 import argparse
 import sys
@@ -11,7 +11,7 @@ def list_modules(detailed=False):
     registry = get_registry()
     
     if detailed:
-        print("GhostModule Registry\n")
+        print("GhostImports Registry\n")
         print("=" * 60)
         
         for category, modules in CATEGORIES.items():
@@ -140,8 +140,8 @@ def clear_all_cmd():
 
 def main():
     parser = argparse.ArgumentParser(
-        description='GhostModule - Lazy-loading module manager',
-        prog='ghostmodule'
+        description='GhostImports - Lazy-loading module manager',
+        prog='ghostimports'
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Commands')

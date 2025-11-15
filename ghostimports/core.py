@@ -1,5 +1,3 @@
-"""Core GhostModule functionality with registry support."""
-
 import sys
 import importlib
 import importlib.util
@@ -334,4 +332,4 @@ def list_modules():
                 if config:
                     print(f"  {item}: {', '.join(config['imports'])} [via {item}]")
     
-    print("\nTip: Use 'ghostmodule list --detailed' for full list")
+    print("\nTip: Use 'ghostimports list --detailed' for full list")

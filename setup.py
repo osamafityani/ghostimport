@@ -15,25 +15,25 @@ def setup_ipython_startup():
         # Create startup directory if it doesn't exist
         os.makedirs(startup_dir, exist_ok=True)
         
-        startup_file = os.path.join(startup_dir, '00-ghostmodule.py')
+        startup_file = os.path.join(startup_dir, '00-ghostimports.py')
         
-        startup_code = '''# GhostModule auto-loader
+        startup_code = '''# GhostImports auto-loader
 try:
-    from ghostmodule import activate
+    from ghostimports import activate
     activate()
 except ImportError:
-    pass  # GhostModule not installed in this environment
+    pass  # GhostImports not installed in this environment
 '''
         
         with open(startup_file, 'w') as f:
             f.write(startup_code)
         
-        print(f"\nGhostModule startup script installed at: {startup_file}")
+        print(f"\nGhostImports startup script installed at: {startup_file}")
         print("All Jupyter notebooks in this environment will now use ghostloader!\n")
         
     except Exception as e:
         print(f"\nCould not setup IPython startup script: {e}")
-        print("You can manually run: python -m ghostmodule.setup_ipython\n")
+        print("You can manually run: python -m ghostimports.setup_ipython\n")
 
 class PostInstallCommand(install):
     def run(self):
@@ -46,7 +46,7 @@ class PostDevelopCommand(develop):
         setup_ipython_startup()
 
 setup(
-    name='ghostmodule',
+    name='ghostimports',
     version='0.1.0',
     description='Lazy-loading proxy modules for Jupyter notebooks',
     author='Osama Fityani',
@@ -74,7 +74,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'ghostmodule=ghostmodule.cli:main',
+            'ghostimports=ghostimports.cli:main',
         ],
     },
 )

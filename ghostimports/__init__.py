@@ -1,4 +1,4 @@
-"""GhostModule - Lazy-loading proxy modules for Jupyter notebooks."""
+"""GhostImports - Lazy-loading proxy modules for Jupyter notebooks."""
 
 from .core import (
     activate, 

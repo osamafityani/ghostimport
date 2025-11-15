@@ -12,20 +12,20 @@ def setup():
         # Create startup directory if it doesn't exist
         os.makedirs(startup_dir, exist_ok=True)
         
-        startup_file = os.path.join(startup_dir, '00-ghostmodule.py')
+        startup_file = os.path.join(startup_dir, '00-ghostimports.py')
         
-        startup_code = '''# GhostModule auto-loader
+        startup_code = '''# GhostImports auto-loader
 try:
-    from ghostmodule import activate
+    from ghostimports import activate
     activate()
 except ImportError:
-    pass  # GhostModule not installed in this environment
+    pass  # GhostImports not installed in this environment
 '''
         
         with open(startup_file, 'w') as f:
             f.write(startup_code)
         
-        print(f"GhostModule startup script installed at: {startup_file}")
+        print(f"GhostImports startup script installed at: {startup_file}")
         print("All Jupyter notebooks will now use ghostloader!")
         return True
         

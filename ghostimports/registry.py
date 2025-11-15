@@ -1,4 +1,4 @@
-"""Module registry system for GhostModule."""
+"""Module registry system for GhostImports."""
 
 import json
 import os
@@ -83,7 +83,7 @@ class ModuleRegistry:
         }
     
     def _get_config_path(self) -> Path:
-        config_dir = Path.home() / '.ghostmodule'
+        config_dir = Path.home() / '.ghostimports'
         config_dir.mkdir(exist_ok=True)
         return config_dir / 'user_modules.json'
     
